@@ -3,6 +3,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery/run-tests?label=tests)](https://github.com/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery/badge.svg?branch=master)](https://coveralls.io/github/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery?branch=master)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery.svg?style=flat-square)](https://packagist.org/packages/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery)
 [![Total Downloads](https://img.shields.io/packagist/dt/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery.svg?style=flat-square)](https://packagist.org/packages/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery)
 
