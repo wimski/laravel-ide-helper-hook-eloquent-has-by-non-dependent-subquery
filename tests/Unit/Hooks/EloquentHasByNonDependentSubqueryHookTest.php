@@ -7,16 +7,13 @@ namespace Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Uni
 use Barryvdh\LaravelIdeHelper\Console\ModelsCommand;
 use Illuminate\Contracts\Config\Repository as Config;
 use Mockery;
-use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use PHPUnit\Framework\TestCase;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentHasByNonDependentSubqueryHook;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\TestModel;
+use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Unit\AbstractUnitTest;
 
-class EloquentHasByNonDependentSubqueryHookTest extends TestCase
+class EloquentHasByNonDependentSubqueryHookTest extends AbstractUnitTest
 {
-    use MockeryPHPUnitIntegration;
-
     /**
      * @test
      */
