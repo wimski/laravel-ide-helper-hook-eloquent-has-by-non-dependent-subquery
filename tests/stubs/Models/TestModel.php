@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs;
+namespace Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

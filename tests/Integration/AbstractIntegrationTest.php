@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Integration;
 
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase;
-use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentHasByNonDependentSubqueryHook;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Providers\LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProvider;
 
-class LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProviderTest extends TestCase
+abstract class AbstractIntegrationTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @param Application $app
      * @return string[]
@@ -18,15 +21,18 @@ class LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProviderTest e
     protected function getPackageProviders($app): array
     {
         return [
+            IdeHelperServiceProvider::class,
             LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProvider::class,
         ];
     }
 
-    /**
-     * @test
-     */
-    public function it_adds_the_hook_to_the_config(): void
+    protected function defineDatabaseMigrations(): void
     {
-        static::assertContains(EloquentHasByNonDependentSubqueryHook::class, config('ide-helper.model_hooks'));
+        $this->loadMigrationsFrom($this->getStubsPath('database' . DIRECTORY_SEPARATOR . 'migrations'));
+    }
+
+    protected function getStubsPath(string $path): string
+    {
+        return dirname(__DIR__) . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . $path;
     }
 }

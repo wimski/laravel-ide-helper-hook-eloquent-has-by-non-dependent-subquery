@@ -9,7 +9,7 @@ use Illuminate\Contracts\Config\Repository as Config;
 use Mockery;
 use Mockery\MockInterface;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentHasByNonDependentSubqueryHook;
-use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\TestModel;
+use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModel;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Unit\AbstractUnitTest;
 
 class EloquentHasByNonDependentSubqueryHookTest extends AbstractUnitTest
