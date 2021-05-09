@@ -16,6 +16,7 @@ use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentH
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Integration\AbstractIntegrationTest;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModel;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModelWithBuilder;
+use function Safe\file_get_contents;
 
 class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
 {
@@ -151,7 +152,7 @@ PHP;
     /**
      * @param Command              $command
      * @param array<string, mixed> $arguments
-     * @param array                $interactiveInput
+     * @param array<string, mixed> $interactiveInput
      * @return CommandTester
      */
     protected function runCommand(Command $command, array $arguments = [], array $interactiveInput = []): CommandTester
