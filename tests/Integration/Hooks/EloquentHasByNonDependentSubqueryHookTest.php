@@ -14,6 +14,8 @@ use Mockery\MockInterface;
 use Symfony\Component\Console\Tester\CommandTester;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentHasByNonDependentSubqueryHook;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Integration\AbstractIntegrationTest;
+use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModel;
+use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModelWithBuilder;
 
 class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
 {
@@ -48,6 +50,7 @@ class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
         $command = $this->app->make(ModelsCommand::class);
 
         $tester = $this->runCommand($command, [
+            'model'   => [TestModel::class],
             '--write' => true,
         ]);
 
@@ -79,6 +82,65 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TestModel extends Model
 {
+}
+
+PHP;
+
+        $this->assertSame($expectedContent, $actualContent);
+    }
+
+    /**
+     * @test
+     */
+    public function it_writes_methods_to_the_model_with_builder_already_imported(): void
+    {
+        $actualContent = null;
+
+        $this->mockFilesystem($this->getStubsPath('Models' . DIRECTORY_SEPARATOR . 'TestModelWithBuilder.php'), $actualContent);
+
+        $command = $this->app->make(ModelsCommand::class);
+
+        $tester = $this->runCommand($command, [
+            'model'   => [TestModelWithBuilder::class],
+            '--write' => true,
+        ]);
+
+        $this->assertSame(0, $tester->getStatusCode());
+        $this->assertStringContainsString('Written new phpDocBlock to', $tester->getDisplay());
+
+        $expectedContent = <<<'PHP'
+<?php
+
+declare(strict_types=1);
+
+namespace Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModelWithBuilder
+ *
+ * @property int $id
+ * @method static Builder|TestModelWithBuilder doesntHaveByNonDependentSubquery($relationMethod, ...$constraints)
+ * @method static Builder|TestModelWithBuilder foo()
+ * @method static Builder|TestModelWithBuilder hasByNonDependentSubquery($relationMethod, ...$constraints)
+ * @method static Builder|TestModelWithBuilder newModelQuery()
+ * @method static Builder|TestModelWithBuilder newQuery()
+ * @method static Builder|TestModelWithBuilder orDoesntHaveByNonDependentSubquery($relationMethod, ...$constraints)
+ * @method static Builder|TestModelWithBuilder orHasByNonDependentSubquery($relationMethod, ...$constraints)
+ * @method static Builder|TestModelWithBuilder query()
+ * @method static Builder|TestModelWithBuilder whereId($value)
+ * @mixin \Eloquent
+ */
+class TestModelWithBuilder extends Model
+{
+    protected $table = 'test_models';
+
+    public function scopeFoo(Builder $query): Builder
+    {
+        return $query;
+    }
 }
 
 PHP;
