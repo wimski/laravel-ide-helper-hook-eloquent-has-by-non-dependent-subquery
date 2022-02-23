@@ -1,13 +1,12 @@
 {
     "name": "wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery",
-    "type": "library",
     "description": "Add Eloquent Has By Non-dependent Subquery support to Laravel IDE Helper",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "laravel-ide-helper",
         "eloquent-has-by-non-dependent-subquery"
     ],
-    "homepage": "https://github.com/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery",
-    "license": "MIT",
     "authors": [
         {
             "name": "Wimski",
@@ -15,6 +14,7 @@
             "role": "Developer"
         }
     ],
+    "homepage": "https://github.com/wimski/laravel-ide-helper-hook-eloquent-has-by-non-dependent-subquery",
     "require": {
         "php": "^7.4 || ^8.0",
         "barryvdh/laravel-ide-helper": "^2.12.2",
@@ -30,16 +30,6 @@
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5"
     },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Wimski\\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\\Providers\\LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProvider"
-            ]
-        }
-    },
     "autoload": {
         "psr-4": {
             "Wimski\\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\\": "src"
@@ -48,6 +38,16 @@
     "autoload-dev": {
         "psr-4": {
             "Wimski\\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wimski\\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\\Providers\\LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProvider"
+            ]
         }
     },
     "scripts": {
