@@ -4,5 +4,6 @@ build
 .phpunit.cache
 .php_cs.cache
 .php_cs.tests.cache
+.phpunit.result.cache
 phpstan.neon
 phpunit.xml
