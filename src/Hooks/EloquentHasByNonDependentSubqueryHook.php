@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\ContextFactory;
 use ReflectionClass;
 use ReflectionObject;
-use function Safe\array_flip;
 
 class EloquentHasByNonDependentSubqueryHook implements ModelHookInterface
 {

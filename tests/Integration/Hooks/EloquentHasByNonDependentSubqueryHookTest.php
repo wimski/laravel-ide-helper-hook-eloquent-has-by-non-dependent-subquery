@@ -16,7 +16,6 @@ use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentH
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Integration\AbstractIntegrationTest;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModel;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModelWithBuilder;
-use function Safe\file_get_contents;
 
 class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
 {
@@ -48,6 +47,7 @@ class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
 
         $this->mockFilesystem($this->getStubsPath('Models' . DIRECTORY_SEPARATOR . 'TestModel.php'), $actualContent);
 
+        /** @var ModelsCommand $command */
         $command = $this->app->make(ModelsCommand::class);
 
         $tester = $this->runCommand($command, [
@@ -99,6 +99,7 @@ PHP;
 
         $this->mockFilesystem($this->getStubsPath('Models' . DIRECTORY_SEPARATOR . 'TestModelWithBuilder.php'), $actualContent);
 
+        /** @var ModelsCommand $command */
         $command = $this->app->make(ModelsCommand::class);
 
         $tester = $this->runCommand($command, [
