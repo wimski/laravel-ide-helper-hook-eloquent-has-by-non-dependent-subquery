@@ -16,7 +16,6 @@ use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Hooks\EloquentH
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\Integration\AbstractIntegrationTest;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModel;
 use Wimski\LaravelIdeHelperHookEloquentHasByNonDependentSubquery\Tests\stubs\Models\TestModelWithBuilder;
-use function Safe\file_get_contents;
 
 class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
 {
