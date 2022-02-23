@@ -48,6 +48,7 @@ class EloquentHasByNonDependentSubqueryHookTest extends AbstractIntegrationTest
 
         $this->mockFilesystem($this->getStubsPath('Models' . DIRECTORY_SEPARATOR . 'TestModel.php'), $actualContent);
 
+        /** @var ModelsCommand $command */
         $command = $this->app->make(ModelsCommand::class);
 
         $tester = $this->runCommand($command, [
@@ -99,6 +100,7 @@ PHP;
 
         $this->mockFilesystem($this->getStubsPath('Models' . DIRECTORY_SEPARATOR . 'TestModelWithBuilder.php'), $actualContent);
 
+        /** @var ModelsCommand $command */
         $command = $this->app->make(ModelsCommand::class);
 
         $tester = $this->runCommand($command, [

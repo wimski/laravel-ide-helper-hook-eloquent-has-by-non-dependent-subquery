@@ -17,8 +17,11 @@ class LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProvider exten
         /** @var Config $config */
         $config = $this->app->get('config');
 
+        /** @var string[] $modelHooks */
+        $modelHooks = $config->get('ide-helper.model_hooks', []);
+
         $config->set('ide-helper.model_hooks', array_merge([
             EloquentHasByNonDependentSubqueryHook::class,
-        ], $config->get('ide-helper.model_hooks', [])));
+        ], $modelHooks));
     }
 }

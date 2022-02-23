@@ -15,6 +15,9 @@ class LaravelIdeHelperHookEloquentHasByNonDependentSubqueryServiceProviderTest e
      */
     public function it_adds_the_hook_to_the_config(): void
     {
-        static::assertContains(EloquentHasByNonDependentSubqueryHook::class, config('ide-helper.model_hooks'));
+        /** @var string[] $modelHooks */
+        $modelHooks = config('ide-helper.model_hooks');
+
+        static::assertContains(EloquentHasByNonDependentSubqueryHook::class, $modelHooks);
     }
 }
